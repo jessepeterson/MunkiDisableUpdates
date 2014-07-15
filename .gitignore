@@ -1,5 +1,5 @@
 *.pyc
 installcheck_script-*.py
 postinstall_script-*.py
-AdobeFlashPlayerUpdateDisable-*.pkginfo
+*Disable-*.pkginfo
 .buildno
