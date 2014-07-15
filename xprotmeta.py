@@ -30,10 +30,12 @@ class AppleXProtectMeta:
 	def remove_plugin_blacklist_item(self, blitem):
 		xprotmeta = self.read_xprotmeta()
 
+		if not xprotmeta:
+			return
+
 		if 'PlugInBlacklist' in xprotmeta.keys() and '10' in xprotmeta['PlugInBlacklist'].keys() and blitem in xprotmeta['PlugInBlacklist']['10'].keys():
 			del xprotmeta['PlugInBlacklist']['10'][blitem]
-
-		self.write_xprotmeta(xprotmeta)
+			self.write_xprotmeta(xprotmeta)
 
 	def flash_plugin_blacklisted(self):
 		return self.plugin_blacklist_item_exists('com.macromedia.Flash Player.plugin')
