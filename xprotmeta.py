@@ -27,6 +27,20 @@ class AppleXProtectMeta:
 
 		return False
 
+	def plugin_blacklist_items_exist(self, blitems):
+		xprotmeta = self.read_xprotmeta()
+
+		if not xprotmeta:
+			return False
+
+		if 'PlugInBlacklist' in xprotmeta.keys() and '10' in xprotmeta['PlugInBlacklist'].keys():
+			for blitem in blitems:
+				if blitem in xprotmeta['PlugInBlacklist']['10'].keys():
+					return True
+
+		return False
+
+
 	def remove_plugin_blacklist_item(self, blitem):
 		xprotmeta = self.read_xprotmeta()
 
@@ -59,3 +73,17 @@ class AppleXProtectMeta:
 
 	def remove_flash_plugin_blacklist(self):
 		self.remove_plugin_blacklist_item('com.macromedia.Flash Player.plugin')
+
+	def java_plugins_blacklisted(self):
+		return self.plugin_blacklist_items_exist([
+			'com.apple.java.JavaAppletPlugin',
+			'com.apple.java.JavaPlugin2_NPAPI',
+			'com.oracle.java.JavaAppletPlugin',
+			])
+
+	def remove_java_plugins_blacklist(self):
+		return self.remove_plugin_blacklist_items([
+			'com.apple.java.JavaAppletPlugin',
+			'com.apple.java.JavaPlugin2_NPAPI',
+			'com.oracle.java.JavaAppletPlugin',
+			])
