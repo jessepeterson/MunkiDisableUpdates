@@ -21,6 +21,16 @@ cat flashconfig.py >> $OUTFILE
 cat disable.py  >> $OUTFILE
 chmod 755 $OUTFILE
 
+if [ ! -f .buildno ];
+then
+	echo 0 >> .buildno
+fi
+buildno=`cat .buildno`
+buildno=`expr $buildno + 1`
+echo $buildno > .buildno
+
+VERS=$VERS.$buildno
+
 echo "Creating $NAME-$VERS.pkginfo"
 # perhaps someday make this automatically update for AdobeFlashPlayer?
 #	--update_for=AdobeFlashPlayer \
