@@ -1,8 +1,10 @@
-echo 'Assembling installcheck_script.py...'
+#!/bin/sh
 
-echo '#!/usr/bin/python' >> installcheck_script.py
-echo >> installcheck_script.py
-cat xprotmeta.py >> installcheck_script.py
-cat flashconfig.py >> installcheck_script.py
-cat check.py  >> installcheck_script.py
-chmod 755 installcheck_script.py
+OUTFILE=installcheck_script.py
+echo "Assembling $OUTFILE..."
+echo '#!/usr/bin/python' >> $OUTFILE
+echo >> $OUTFILE
+cat xprotmeta.py >> $OUTFILE
+cat flashconfig.py >> $OUTFILE
+cat check.py  >> $OUTFILE
+chmod 755 $OUTFILE
