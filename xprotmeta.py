@@ -2,6 +2,7 @@ import plistlib
 import os
 
 XPROTECT_META_FILE = '/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/XProtect.meta.plist'
+# XPROTECT_META_FILE = '/tmp/XProtect.meta.plist'
 
 class AppleXProtectMeta:
 	def exists(self):
@@ -73,6 +74,27 @@ class AppleXProtectMeta:
 
 	def remove_flash_plugin_blacklist(self):
 		self.remove_plugin_blacklist_item('com.macromedia.Flash Player.plugin')
+
+	def java_webcomponent_exists(self):
+		xprotmeta = self.read_xprotmeta()
+
+		if not xprotmeta:
+			False
+
+		if 'JavaWebComponentVersionMinimum' in xprotmeta.keys():
+			return True
+
+		return False
+
+	def remove_java_webcomponent(self):
+		xprotmeta = self.read_xprotmeta()
+
+		if not xprotmeta:
+			return
+
+		if 'JavaWebComponentVersionMinimum' in xprotmeta.keys():
+			del xprotmeta['JavaWebComponentVersionMinimum']
+			self.write_xprotmeta(xprotmeta)
 
 	def java_plugins_blacklisted(self):
 		return self.plugin_blacklist_items_exist([
