@@ -40,7 +40,7 @@ echo "Creating $NAME-$VERS.pkginfo"
 	--description='Disables automatic update checking and updating for Adobe Flash.' \
 	--pkgvers=$VERS \
 	-c development -c testing \
-	--minimum_os_version=10.5.0 \
+	--minimum_os_version=10.6.0 \
 	--nopkg \
 	--installcheck_script=installcheck_script.py \
 	--postinstall_script=postinstall_script.py \
