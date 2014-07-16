@@ -68,6 +68,8 @@ echo '#!/usr/bin/python' > $OUTFILE
 echo >> $OUTFILE
 cat xprotmeta.py >> $OUTFILE
 echo >> $OUTFILE
+cat javadeployment.py  >> $OUTFILE
+echo >> $OUTFILE
 cat java-check.py  >> $OUTFILE
 echo >> $OUTFILE
 chmod 755 $OUTFILE
@@ -77,6 +79,8 @@ echo "==> Assembling $OUTFILE..."
 echo '#!/usr/bin/python' > $OUTFILE
 echo >> $OUTFILE
 cat xprotmeta.py >> $OUTFILE
+echo >> $OUTFILE
+cat javadeployment.py  >> $OUTFILE
 echo >> $OUTFILE
 cat java-disable.py  >> $OUTFILE
 echo >> $OUTFILE
