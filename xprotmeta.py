@@ -70,10 +70,16 @@ class AppleXProtectMeta:
 			self.write_xprotmeta(xprotmeta)
 
 	def flash_plugin_blacklisted(self):
-		return self.plugin_blacklist_item_exists('com.macromedia.Flash Player.plugin')
+		return self.plugin_blacklist_items_exist([
+			'com.macromedia.Flash Player.plugin',
+			'com.macromedia.Flash Player ESR.plugin',
+			])
 
 	def remove_flash_plugin_blacklist(self):
-		self.remove_plugin_blacklist_item('com.macromedia.Flash Player.plugin')
+		self.remove_plugin_blacklist_items([
+			'com.macromedia.Flash Player.plugin',
+			'com.macromedia.Flash Player ESR.plugin',
+			])
 
 	def java_webcomponent_exists(self):
 		xprotmeta = self.read_xprotmeta()

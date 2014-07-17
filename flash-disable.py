@@ -12,6 +12,6 @@ print 'Disabling Flash player updates'
 fpc.disable_auto_updates()
 
 print 'Removing Flash player blacklist'
-xpm.remove_flash_plugin_blacklist
+xpm.remove_flash_plugin_blacklist()
 
 sys.exit(0)
