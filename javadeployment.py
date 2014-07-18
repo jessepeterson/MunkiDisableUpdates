@@ -40,7 +40,7 @@ class JavaDeploymentFile:
 
 		return False
 
-DEPLOY_PROPERTY_FILE = '/XLibrary/Application Support/Oracle/Java/Deployment/deployment.properties'
+DEPLOY_PROPERTY_FILE = '/Library/Application Support/Oracle/Java/Deployment/deployment.properties'
 # DEPLOY_PROPERTY_FILE = '/tmp/deployment.properties'
 
 class JavaDeploymentConfigFile(JavaDeploymentFile):
