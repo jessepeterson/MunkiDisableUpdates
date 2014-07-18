@@ -1,3 +1,3 @@
-Assembles a script that disables updates and update checking for Adobe Flash Player.
+Scripts to assemble pkginfo files that disable auto-updates and version blocks for various software.
 
-The script checks for and disables Adobe Flash Player browser auto-updating *as well as* the various Apple checks and limiters that block a specific version.
+Simply execute `./assemble.sh` to generate.
