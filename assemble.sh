@@ -101,3 +101,46 @@ echo "==> Creating $NAME-$VERS.$BUILDNO.pkginfo"
 	--postinstall_script=postinstall_script-flash.py \
 	--unattended_install \
 	> $NAME-$VERS.$BUILDNO.pkginfo
+
+##################################################
+
+echo 'Adobe Reader Updates Disable'
+
+VERS=0.2
+NAME=AdobeReaderUpdateDisable
+
+OUTFILE=installcheck_script-reader.py
+echo "==> Assembling $OUTFILE..."
+echo '#!/usr/bin/python' > $OUTFILE
+echo >> $OUTFILE
+cat readerpref.py  >> $OUTFILE
+echo >> $OUTFILE
+cat reader-check.py  >> $OUTFILE
+echo >> $OUTFILE
+chmod 755 $OUTFILE
+
+OUTFILE=postinstall_script-reader.py
+echo "==> Assembling $OUTFILE..."
+echo '#!/usr/bin/python' > $OUTFILE
+echo >> $OUTFILE
+cat readerpref.py  >> $OUTFILE
+echo >> $OUTFILE
+cat reader-disable.py  >> $OUTFILE
+echo >> $OUTFILE
+chmod 755 $OUTFILE
+
+echo "==> Creating $NAME-$VERS.$BUILDNO.pkginfo"
+# perhaps someday make this automatically update for Reader?
+#	--update_for=AdobeReader \
+/usr/local/munki/makepkginfo \
+	--name=$NAME \
+	--displayname='Adobe Reader Update Disable' \
+	--description='Disables automatic update checking and updating for Adobe Reader.' \
+	--pkgvers=$VERS.$BUILDNO \
+	-c development -c testing \
+	--minimum_os_version=10.6.0 \
+	--nopkg \
+	--installcheck_script=installcheck_script-reader.py \
+	--postinstall_script=postinstall_script-reader.py \
+	--unattended_install \
+	> $NAME-$VERS.$BUILDNO.pkginfo

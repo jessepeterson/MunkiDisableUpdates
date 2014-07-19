@@ -11,3 +11,5 @@ Currently supported:
   * Disables auto-updates (deployment.properties, deployment.config)
   * Removes blocked plugin entries from Apple's XProtect meta plist
   * Removes Java web component minimum version from Apple's XProtect meta plist
+* Adobe Reader (`AdobeReaderUpdateDisable-0.X.X`)
+  * Disables auto-updates (FeatureLockdown:bUpdater in system preference)
