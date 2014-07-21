@@ -19,9 +19,13 @@ if [ $OS_MAJ -ge 10 -a $OS_MAJ -le 12 ]; then
 		echo 'Launchd XProtect is loaded; returning 0 (not installed)'
 		exit 0
 	fi
+	echo 'XProtect launchd not loaded; continuing'
 # TODO: possibly check the ConfigDataInstall and CriticalUpdateInstall entries?
 #elif [ $OS_MAJ -ge 12 ]; then
 	# 10.8+
 	# defaults read /Library/Preferences/com.apple.SoftwareUpdate ConfigDataInstall
 	# defaults read /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdateInstall
 fi
+
+echo 'softwareupdate schedule is off; returning 1 (installed)'
+exit 1
