@@ -97,8 +97,8 @@ echo "==> Creating $NAME-$VERS.$BUILDNO.pkginfo"
 	-c development -c testing \
 	--minimum_os_version=10.7.0 \
 	--nopkg \
-	--installcheck_script=installcheck_script-flash.py \
-	--postinstall_script=postinstall_script-flash.py \
+	--installcheck_script=installcheck_script-java.py \
+	--postinstall_script=postinstall_script-java.py \
 	--unattended_install \
 	> $NAME-$VERS.$BUILDNO.pkginfo
 
