@@ -144,3 +144,24 @@ echo "==> Creating $NAME-$VERS.$BUILDNO.pkginfo"
 	--postinstall_script=postinstall_script-reader.py \
 	--unattended_install \
 	> $NAME-$VERS.$BUILDNO.pkginfo
+
+##################################################
+
+NAME=OSXUpdatesDisable
+VERS=0.6
+
+echo 'OS X Updates Disable'
+echo "==> Creating $NAME-$VERS.$BUILDNO.pkginfo"
+
+/usr/local/munki/makepkginfo \
+	--name=$NAME \
+	--displayname='OS X Automatic Update Disable' \
+	--description='Disables update checking for OS X.' \
+	--pkgvers=$VERS.$BUILDNO \
+	-c development -c testing \
+	--minimum_os_version=10.6.0 \
+	--nopkg \
+	--installcheck_script=osx-check.sh \
+	--postinstall_script=osx-disable.sh \
+	--unattended_install \
+	> $NAME-$VERS.$BUILDNO.pkginfo
