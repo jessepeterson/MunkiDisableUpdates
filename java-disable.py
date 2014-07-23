@@ -9,7 +9,7 @@ xpm = AppleXProtectMeta()
 jdc = JavaDeploymentConfigFile()
 jdp = JavaDeploymentPropertiesFile()
 
-print 'Removing Flash player blacklist'
+print 'Removing Java XProtect blacklist'
 xpm.remove_java_plugins_blacklist()
 
 print 'Removing Java web component version'

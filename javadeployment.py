@@ -26,6 +26,11 @@ class JavaDeploymentFile:
 		for k in config_dict.keys():
 			config_str += k + '=' + config_dict[k] + "\n"
 
+		mydir = os.path.dirname(self.filename)
+
+		if not os.path.isdir(mydir):
+			os.makedirs(mydir)
+
 		with open(self.filename, 'w') as f:
 			f.write(config_str)
 
