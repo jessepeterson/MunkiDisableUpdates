@@ -28,6 +28,11 @@ class FlashPlayerConfig:
 
 		config_str = ''
 
+		mydir = os.path.dirname(FLASH_PLAYER_CONFIG_FILE)
+
+		if not os.path.isdir(mydir):
+			os.makedirs(mydir)
+
 		for k in config_dict.keys():
 			config_str += k + '=' + config_dict[k] + "\n"
 
