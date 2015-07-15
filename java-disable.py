@@ -9,7 +9,7 @@ xpm = AppleXProtectMeta()
 jdc = JavaDeploymentConfigFile()
 jdp = JavaDeploymentPropertiesFile()
 jup = JavaUpdaterPref()
-jdp = JavaDeployPref()
+jdpref = JavaDeployPref()
 
 print 'Removing Java XProtect blacklist'
 xpm.remove_java_plugins_blacklist()
@@ -27,6 +27,6 @@ print 'Disabling Java Upadter preference'
 jup.disable_updates()
 
 print 'Disabling Java Upadter preference'
-jdp.disable_updates()
+jdpref.disable_updates()
 
 sys.exit(0)
