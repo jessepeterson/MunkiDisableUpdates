@@ -9,6 +9,7 @@ xpm = AppleXProtectMeta()
 jdc = JavaDeploymentConfigFile()
 jdp = JavaDeploymentPropertiesFile()
 jup = JavaUpdaterPref()
+jdp = JavaDeployPref()
 
 if xpm.java_plugins_blacklisted():
 	print 'Java plugins are blacklisted; returning 0 (not installed)'
@@ -36,6 +37,10 @@ if not jdp.expiration_check_locked():
 
 if not jup.updates_disabled():
 	print 'Java Updater not disabled; returning 0 (not installed)'
+	sys.exit(0)
+
+if not jdp.updates_disabled():
+	print 'Java Deployment Prefs not disabled; returning 0 (not installed)'
 	sys.exit(0)
 
 print 'Java not blacklisted and no web component version; returning 1 (installed)'
