@@ -23,10 +23,10 @@ jdc.write_disabled_update_config()
 print 'Writing Java deployment properties'
 jdp.write_disabled_update_config()
 
-print 'Disabling Java Upadter preference'
+print 'Disabling Java Updater preference'
 jup.disable_updates()
 
-print 'Disabling Java Upadter preference'
+print 'Disabling Java Deployment preference'
 jdpref.disable_updates()
 
 sys.exit(0)
