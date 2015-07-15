@@ -8,6 +8,7 @@ if 'AppleXProtectMeta' not in locals().keys():
 xpm = AppleXProtectMeta()
 jdc = JavaDeploymentConfigFile()
 jdp = JavaDeploymentPropertiesFile()
+jup = JavaUpdaterPref()
 
 print 'Removing Java XProtect blacklist'
 xpm.remove_java_plugins_blacklist()
@@ -20,5 +21,8 @@ jdc.write_disabled_update_config()
 
 print 'Writing Java deployment properties'
 jdp.write_disabled_update_config()
+
+print 'Disabling Java Upadter preference'
+jup.disable_updates()
 
 sys.exit(0)

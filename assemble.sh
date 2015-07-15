@@ -59,7 +59,7 @@ echo "==> Creating $NAME-$VERS.$BUILDNO.pkginfo"
 
 echo 'Java Updates Disable'
 
-VERS=0.1
+VERS=0.2
 NAME=JavaUpdatesDisable
 
 OUTFILE=installcheck_script-java.py
@@ -69,6 +69,8 @@ echo >> $OUTFILE
 cat xprotmeta.py >> $OUTFILE
 echo >> $OUTFILE
 cat javadeployment.py  >> $OUTFILE
+echo >> $OUTFILE
+cat javaupdaterpref.py  >> $OUTFILE
 echo >> $OUTFILE
 cat java-check.py  >> $OUTFILE
 echo >> $OUTFILE
@@ -81,6 +83,8 @@ echo >> $OUTFILE
 cat xprotmeta.py >> $OUTFILE
 echo >> $OUTFILE
 cat javadeployment.py  >> $OUTFILE
+echo >> $OUTFILE
+cat javaupdaterpref.py  >> $OUTFILE
 echo >> $OUTFILE
 cat java-disable.py  >> $OUTFILE
 echo >> $OUTFILE
